@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Island - Setup Instructions</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: #fff;
+            margin: 0;
+            padding: 2rem;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 2px solid #ffd700;
+        }
+        h1 {
+            color: #ffd700;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .warning {
+            background: rgba(255, 193, 7, 0.2);
+            border: 2px solid #ffc107;
+            padding: 1rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+        }
+        .solution {
+            background: rgba(40, 167, 69, 0.2);
+            border: 2px solid #28a745;
+            padding: 1rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+        }
+        .step {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+        }
+        .code {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 0.5rem;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            margin: 0.5rem 0;
+        }
+        .button {
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            color: #000;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+        }
+        .file-list {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏝️ Crypto Island Treasure Hunt - Setup Instructions</h1>
+        
+        <div class="warning">
+            <h3>⚠️ MetaMask Detection Issue</h3>
+            <p>You're seeing "MetaMask not detected!" because the game is running directly from your file system (file:// protocol). Browser security policies prevent MetaMask from being detected when running from local files.</p>
+        </div>
+
+        <div class="solution">
+            <h3>✅ Solution: Run a Local Web Server</h3>
+            <p>You need to run the game through a web server instead of opening the HTML file directly. Here are several ways to do this:</p>
+        </div>
+
+        <div class="step">
+            <h3>🚀 Method 1: Use the Provided Server Scripts (Recommended)</h3>
+            <p>I've created server scripts for you:</p>
+            <div class="file-list">
+                <strong>For Windows:</strong> Double-click <code>start-server.bat</code><br>
+                <strong>For Mac/Linux:</strong> Run <code>./start-server.sh</code> in terminal
+            </div>
+            <p>These scripts will automatically start a local server and open the game in your browser.</p>
+        </div>
+
+        <div class="step">
+            <h3>🐍 Method 2: Python (if installed)</h3>
+            <p>Open Command Prompt/Terminal in the game folder and run:</p>
+            <div class="code">python -m http.server 8000</div>
+            <p>Then open: <a href="http://localhost:8000" target="_blank">http://localhost:8000</a></p>
+        </div>
+
+        <div class="step">
+            <h3>📦 Method 3: Node.js (if installed)</h3>
+            <p>Open Command Prompt/Terminal in the game folder and run:</p>
+            <div class="code">npx http-server -p 8000 -o</div>
+            <p>This will automatically open the game in your browser.</p>
+        </div>
+
+        <div class="step">
+            <h3>🔧 Method 4: VS Code Live Server Extension</h3>
+            <p>If you have VS Code:</p>
+            <ol>
+                <li>Install the "Live Server" extension</li>
+                <li>Right-click on <code>index.html</code></li>
+                <li>Select "Open with Live Server"</li>
+            </ol>
+        </div>
+
+        <div class="step">
+            <h3>🌐 Method 5: Other Web Servers</h3>
+            <p>You can use any web server software:</p>
+            <ul>
+                <li><strong>XAMPP:</strong> Place files in htdocs folder</li>
+                <li><strong>WAMP:</strong> Place files in www folder</li>
+                <li><strong>MAMP:</strong> Place files in htdocs folder</li>
+                <li><strong>IIS:</strong> Place files in wwwroot folder</li>
+            </ul>
+        </div>
+
+        <div class="solution">
+            <h3>🎮 After Starting the Server</h3>
+            <p>Once you're running the game through a web server:</p>
+            <ol>
+                <li>Make sure MetaMask is installed and unlocked</li>
+                <li>Click "Connect Wallet" in the game</li>
+                <li>If MetaMask still isn't detected, you can play in demo mode</li>
+            </ol>
+        </div>
+
+        <div class="step">
+            <h3>🔍 Troubleshooting</h3>
+            <p><strong>Still having issues?</strong></p>
+            <ul>
+                <li>Make sure MetaMask is unlocked</li>
+                <li>Try refreshing the page</li>
+                <li>Check browser console for errors (F12)</li>
+                <li>Try a different browser</li>
+                <li>Clear browser cache</li>
+            </ul>
+        </div>
+
+        <div style="text-align: center; margin-top: 2rem;">
+            <a href="index.html" class="button">Try Demo Mode Now</a>
+            <a href="http://localhost:8000" class="button" target="_blank">Open Game (if server running)</a>
+        </div>
+    </div>
+</body>
+</html>

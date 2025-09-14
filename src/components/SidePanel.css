@@ -1,0 +1,60 @@
+.side-panel {
+  width: 350px;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  overflow-y: auto;
+  border-left: 2px solid #ffd700;
+}
+
+.side-panel h3 {
+  color: #ffd700;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  border-bottom: 1px solid rgba(255, 215, 0, 0.3);
+  padding-bottom: 0.5rem;
+}
+
+.side-panel section {
+  margin-bottom: 2rem;
+}
+
+.story-section, .hints-section, .inventory-section, .leaderboard-section {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+.leaderboard-entry {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.leaderboard-entry:last-child {
+  border-bottom: none;
+}
+
+.rank {
+  font-weight: bold;
+  color: #ffd700;
+}
+
+.player-name {
+  flex: 1;
+  margin-left: 1rem;
+}
+
+.points {
+  color: #ffed4e;
+}
+
+@media (max-width: 768px) {
+  .side-panel {
+    width: 100%;
+    height: 300px;
+  }
+}

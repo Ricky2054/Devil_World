@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Island Treasure Hunt</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+</head>
+<body>
+    <div id="loading-screen">
+        <div class="loading-content">
+            <h1>🏝️ Crypto Island Treasure Hunt</h1>
+            <p>Loading the legendary island...</p>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="game-container" style="display: none;">
+        <!-- Header -->
+        <header class="game-header">
+            <div class="player-stats">
+                <div class="stat-item">
+                    <span class="stat-icon">💰</span>
+                    <span id="player-coins">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-icon">⚡</span>
+                    <span id="player-energy">100</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-icon">🔥</span>
+                    <span id="player-streak">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-icon">🏆</span>
+                    <span id="player-points">0</span>
+                </div>
+            </div>
+            <div class="wallet-section">
+                <button id="connect-wallet" class="wallet-btn">Connect Wallet</button>
+                <div id="wallet-info" class="wallet-info" style="display: none;">
+                    <span id="wallet-address"></span>
+                    <button id="disconnect-wallet" class="disconnect-btn">Disconnect</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-main">
+            <div class="game-canvas-container">
+                <canvas id="game-canvas"></canvas>
+                <div class="game-controls">
+                    <button id="explore-btn" class="action-btn">🔍 Explore</button>
+                    <button id="dig-btn" class="action-btn" disabled>⛏️ Dig</button>
+                    <button id="solve-puzzle-btn" class="action-btn" disabled>🧩 Solve Puzzle</button>
+                </div>
+            </div>
+
+            <!-- Side Panel -->
+            <div class="side-panel">
+                <div class="story-section">
+                    <h3>📖 Story Progress</h3>
+                    <div id="story-content">
+                        <p>Welcome to Crypto Island! Years ago, world leaders left behind encrypted phones with valuable crypto wallets. Your mission: find them before others do!</p>
+                    </div>
+                </div>
+
+                <div class="hints-section">
+                    <h3>💡 Hints & Clues</h3>
+                    <div id="hints-content">
+                        <p>No active hints yet. Start exploring to find clues!</p>
+                    </div>
+                </div>
+
+                <div class="inventory-section">
+                    <h3>🎒 Inventory</h3>
+                    <div id="inventory-content">
+                        <p>Empty inventory. Find items by exploring!</p>
+                    </div>
+                </div>
+
+                <div class="leaderboard-section">
+                    <h3>🏆 Leaderboard</h3>
+                    <div id="leaderboard-content">
+                        <p>Loading leaderboard...</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Modals -->
+        <div id="puzzle-modal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h3>🧩 Puzzle Challenge</h3>
+                <div id="puzzle-content"></div>
+                <div class="puzzle-actions">
+                    <input type="text" id="puzzle-answer" placeholder="Enter your answer...">
+                    <button id="submit-puzzle">Submit</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="staking-modal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h3>💰 Stake Coins</h3>
+                <p>Stake coins to gain entry to the island and start your treasure hunt!</p>
+                <div class="staking-options">
+                    <button class="stake-option" data-amount="10">Stake 10 Coins</button>
+                    <button class="stake-option" data-amount="50">Stake 50 Coins</button>
+                    <button class="stake-option" data-amount="100">Stake 100 Coins</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mint-modal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h3>🎨 Mint NFT</h3>
+                <p>Mint a unique NFT to commemorate your treasure hunt adventure!</p>
+                <div class="mint-options">
+                    <button id="mint-treasure-nft" class="mint-btn">Mint Treasure NFT (50 Coins)</button>
+                    <button id="mint-achievement-nft" class="mint-btn">Mint Achievement NFT (25 Coins)</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/avalanche.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/puzzles.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

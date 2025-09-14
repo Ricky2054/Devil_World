@@ -1,0 +1,41 @@
+{
+  "name": "crypto-island-treasure-hunt",
+  "version": "1.0.0",
+  "description": "Blockchain-based 2D treasure hunt game",
+  "main": "index.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "compile": "hardhat compile",
+    "deploy:local": "hardhat run scripts/deploy-local.js --network local",
+    "deploy:fuji": "hardhat run scripts/deploy-fuji.js --network fuji"
+  },
+  "dependencies": {
+    "@metamask/detect-provider": "^2.0.0",
+    "@openzeppelin/contracts": "^5.4.0",
+    "ethers": "^6.13.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-ethers": "^4.0.1",
+    "dotenv": "^17.2.2",
+    "hardhat": "^3.0.6"
+  },
+  "type": "module"
+}
