@@ -1,16 +1,16 @@
-# 🏝️ Crypto Island Adventure - Smart Contracts
+# 😈 Devil World - Smart Contracts
 
-Real smart contracts for the Crypto Island Adventure game, deployed on Avalanche Fuji Testnet.
+Real smart contracts for the Devil World game, deployed on our custom L1 blockchain network.
 
 ## 📋 Contracts Overview
 
-### 🏦 AVAX Staking Contract
-- **Minimum Stake**: 0.001 AVAX
+### 🏦 Native Token Staking Contract
+- **Minimum Stake**: 0.001 native tokens
 - **Reward Rate**: 10% APY
 - **Features**: Staking, unstaking, reward claiming, emergency functions
 
 ### 🎨 Crypto Island NFT Contract
-- **Mint Price**: 0.0005 AVAX
+- **Mint Price**: 0.0005 native tokens
 - **Max Supply**: 10,000 NFTs
 - **Features**: NFT minting, metadata, rarity system, owner controls
 
@@ -19,8 +19,8 @@ Real smart contracts for the Crypto Island Adventure game, deployed on Avalanche
 ### Prerequisites
 - Node.js (v16+)
 - npm or yarn
-- MetaMask with Avalanche Fuji Testnet
-- Testnet AVAX (get from [faucet](https://faucet.avax.network/))
+- MetaMask with custom L1 network configured
+- Native tokens for gas fees and staking
 
 ### Installation
 ```bash
@@ -40,10 +40,11 @@ npm test
 Create a `.env` file:
 ```env
 PRIVATE_KEY=your_private_key_here
-SNOWTRACE_API_KEY=your_snowtrace_api_key_here
+CUSTOM_L1_RPC_URL=your_custom_l1_rpc_url_here
+BLOCK_EXPLORER_API_KEY=your_block_explorer_api_key_here
 ```
 
-#### 2. Deploy to Avalanche Fuji Testnet
+#### 2. Deploy to Custom L1 Network
 ```bash
 npm run deploy
 ```
@@ -55,27 +56,40 @@ npm run verify
 
 ## 📝 Contract Addresses
 
-After deployment, you'll get contract addresses like:
+### 🚀 Deployed Contracts on Custom L1 Network
+
 ```javascript
-const STAKING_CONTRACT = "0x1234567890123456789012345678901234567890";
-const NFT_CONTRACT = "0x0987654321098765432109876543210987654321";
+// Native Token Staking Contract
+const STAKING_CONTRACT = "0x961474F7615b2ecc02feF01c6c83042628648C68";
+
+// Crypto Island NFT Contract  
+const NFT_CONTRACT = "0x591219308029e3AC0B5068DB628e7DAD716a5ab2";
+
+// Crypto Island Token Contract (ERC-20)
+const TOKEN_CONTRACT = "0xd66487C006D8eF71512244eD8f9fA5377F65D208";
 ```
+
+### 🔗 Block Explorer Links
+- **Staking Contract**: `https://explorer.your-custom-l1.com/address/0x961474F7615b2ecc02feF01c6c83042628648C68`
+- **NFT Contract**: `https://explorer.your-custom-l1.com/address/0x591219308029e3AC0B5068DB628e7DAD716a5ab2`
+- **Token Contract**: `https://explorer.your-custom-l1.com/address/0xd66487C006D8eF71512244eD8f9fA5377F65D208`
 
 ## 🎮 Game Integration
 
 Update your game with the deployed contract addresses:
 
 ```javascript
-// In your game's App.js
-const STAKING_CONTRACT = "0xYourDeployedStakingContractAddress";
-const NFT_CONTRACT = "0xYourDeployedNFTContractAddress";
+// In your game's App.js - Use the actual deployed addresses
+const STAKING_CONTRACT = "0x961474F7615b2ecc02feF01c6c83042628648C68";
+const NFT_CONTRACT = "0x591219308029e3AC0B5068DB628e7DAD716a5ab2";
+const TOKEN_CONTRACT = "0xd66487C006D8eF71512244eD8f9fA5377F65D208";
 
 // Update staking function
 const stakeCoins = async () => {
   // ... existing code ...
   
   const tx = await signer.sendTransaction({
-    to: STAKING_CONTRACT, // Real contract address
+    to: STAKING_CONTRACT, // Real deployed contract address
     value: stakeAmount,
     gasLimit: gasEstimate.mul(120).div(100)
   });
@@ -88,7 +102,7 @@ const mintNFT = async () => {
   // ... existing code ...
   
   const tx = await signer.sendTransaction({
-    to: NFT_CONTRACT, // Real contract address
+    to: NFT_CONTRACT, // Real deployed contract address
     value: mintAmount,
     gasLimit: gasEstimate.mul(120).div(100)
   });
@@ -99,12 +113,12 @@ const mintNFT = async () => {
 
 ## 🔧 Contract Functions
 
-### AVAX Staking Contract
+### Native Token Staking Contract
 ```solidity
-// Stake AVAX
+// Stake native tokens
 function stake() external payable
 
-// Unstake AVAX
+// Unstake native tokens
 function unstake() external
 
 // Claim rewards
@@ -140,16 +154,17 @@ Tests cover:
 ## 📊 Contract Statistics
 
 After deployment, check contract stats:
-- **Total Staked**: Amount of AVAX staked
+- **Total Staked**: Amount of native tokens staked
 - **Total Rewards Paid**: Rewards distributed
 - **NFTs Minted**: Number of NFTs created
 - **Contract Balance**: Available funds
 
 ## 🔍 Verification
 
-Contracts are automatically verified on Snowtrace:
-- Staking Contract: `https://testnet.snowtrace.io/address/{STAKING_ADDRESS}`
-- NFT Contract: `https://testnet.snowtrace.io/address/{NFT_ADDRESS}`
+Contracts are automatically verified on our custom block explorer:
+- **Staking Contract**: `https://explorer.your-custom-l1.com/address/0x961474F7615b2ecc02feF01c6c83042628648C68`
+- **NFT Contract**: `https://explorer.your-custom-l1.com/address/0x591219308029e3AC0B5068DB628e7DAD716a5ab2`
+- **Token Contract**: `https://explorer.your-custom-l1.com/address/0xd66487C006D8eF71512244eD8f9fA5377F65D208`
 
 ## 🛡️ Security Features
 
@@ -193,7 +208,8 @@ Contracts are automatically verified on Snowtrace:
 For issues or questions:
 - Check the test files for usage examples
 - Review the contract code for implementation details
-- Test on local network before mainnet deployment
+- Test on local network before custom L1 deployment
+- Ensure your custom L1 network is properly configured
 
 ## 📄 License
 
@@ -201,4 +217,4 @@ MIT License - see LICENSE file for details.
 
 ---
 
-**🎮 Ready to integrate real smart contracts into your Crypto Island Adventure game!** 🚀
+**🎮 Ready to integrate real smart contracts into your Devil World game!** 🚀
